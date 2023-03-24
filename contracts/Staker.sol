@@ -4,7 +4,6 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract Staker {
     mapping(address => uint256) public stakedBalances;
-
     IERC20 public tokenToStake;
 
     constructor(address _tokenToStake) {
