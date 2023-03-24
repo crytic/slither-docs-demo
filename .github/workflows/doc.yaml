@@ -24,7 +24,7 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        working-directory: project
+        working-directory: .
         run: npm ci
 
       - name: Document with Slither
