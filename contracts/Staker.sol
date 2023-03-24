@@ -3,7 +3,7 @@ pragma solidity 0.8.17;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract Staker {
-    mapping(address => uint256) public stakedBalances;
+    mapping(address => uint256) internal stakedBalances;
     IERC20 public tokenToStake;
 
     constructor(address _tokenToStake) {
@@ -30,5 +30,13 @@ contract Staker {
         amount = stakedAmount;
         bool success = tokenToStake.transfer(msg.sender, amount);
         require(success == true, "transfer failed");
+    }
+    
+    /**
+     * @notice getStakedBalances() allows users to retrieve their staked balance.
+     * @dev This function takes in an address of the user and returns the staked balance associated with that address.
+     */
+    function getStakedBalances(address user) public returns(uint256 stakedAmount) {
+        return stakedBalances[user];
     }
 }
