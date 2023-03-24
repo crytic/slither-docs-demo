@@ -32,6 +32,10 @@ contract Staker {
         require(success == true, "transfer failed");
     }
     
+    /**
+     * @notice getStakedBalances() allows users to retrieve their staked balance.
+     * @dev This function takes in an address of the user and returns the staked balance associated with that address.
+     */
     function getStakedBalances(address user) public returns(uint256 stakedAmount) {
         return stakedBalances[user];
     }
